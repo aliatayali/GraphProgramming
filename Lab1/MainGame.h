@@ -50,7 +50,6 @@ private:
 	Shader shaderSkybox;
 	Shader reflect;
 	Shader basicShader;
-	Shader goochShader;
 	Shader phongShader;
 
 	Skybox skybox;

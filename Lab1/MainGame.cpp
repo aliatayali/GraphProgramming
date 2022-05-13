@@ -19,7 +19,6 @@ MainGame::MainGame()
 	Shader geoShader();
 	Shader reflect();
 	Shader basicShader();
-	Shader goochShader();
 	Shader phongShader();
 	//Audio* audioDevice();
 }
@@ -37,8 +36,6 @@ void MainGame::run()
 void MainGame::initSystems()
 {
 
-	
-
 	_gameDisplay.initDisplay(); 
 	//whistle = audioDevice.loadSound("..\\res\\bang.wav");
 	//backGroundMusic = audioDevice.loadSound("..\\res\\background.wav");
@@ -52,7 +49,6 @@ void MainGame::initSystems()
 	rimShader.init("..\\res\\shaderRim.vert", "..\\res\\shaderRim.frag");
 	reflect.init("..\\res\\shaderReflection.vert", "..\\res\\shaderReflection.frag");
 	basicShader.init("..\\res\\shader.vert", "..\\res\\shader.frag");
-	goochShader.init("..\\res\\shaderGooch.vert", "..\\res\\shaderGooch.frag");
 	phongShader.init("..\\res\\shaderPhong.vert", "..\\res\\shaderPhong.frag");
 
 	geoShader.initGeo();
@@ -145,8 +141,7 @@ bool MainGame::collision(glm::vec3 m1Pos, float m1Rad, glm::vec3 m2Pos, float m2
 
 	if (distance < (m1Rad + m2Rad))
 	{
-		//audioDevice.setlistener(myCamera.getPos(), m1Pos); //add bool to mesh
-		//playAudio(whistle, m1Pos);
+
 		return true;
 	}
 	else
@@ -155,23 +150,6 @@ bool MainGame::collision(glm::vec3 m1Pos, float m1Rad, glm::vec3 m2Pos, float m2
 	}
 }
 
-//void MainGame::playAudio(unsigned int Source, glm::vec3 pos)
-//{
-//	
-//	ALint state; 
-//	alGetSourcei(Source, AL_SOURCE_STATE, &state);
-//	/*
-//	Possible values of state
-//	AL_INITIAL
-//	AL_STOPPED
-//	AL_PLAYING
-//	AL_PAUSED
-//	*/
-//	if (AL_PLAYING != state)
-//	{
-//		audioDevice.playSound(Source, pos);
-//	}
-//}
 void MainGame::linkFogShader()
 {
 	//fogShader.setMat4("u_pm", myCamera.getProjection());
@@ -214,20 +192,6 @@ void MainGame::linkRimLighting()
 	rimShader.setVec3("lightDir", glm::vec3(0.5f, 0.5f, 0.5f));
 }
 
-void MainGame::linkGooch()
-{
-	/*vec3 CoolColor = vec3(0, 0, 0.6);
-	float DiffuseCool = 0.45;
-	float DiffuseWarm = 0.45;
-	vec3 LightPosition = vec3(0, 10, 4);
-	vec3 SurfaceColor = vec3(1, 0.75, 0.75);
-	vec3 WarmColor = vec3(0.6, 0.6, 0);*/
-
-	
-	//reflect.setMat3("normalToWorld", );
-	//reflect.setMat4("projection", myCamera.getProjection());
-
-}
 void MainGame::linkPhong()
 {
 	
@@ -253,7 +217,6 @@ void MainGame::drawGame()
 
 	Texture texture("..\\res\\bricks.jpg"); //load texture
 	Texture texture1("..\\res\\water.jpg"); //load texture
-	Texture texture2("..\\res\\low.jpg");
 	Texture textureBox("..\\res\\box2.jpg");
 	Texture textureMoon("..\\res\\MoonTex4.jpg");
 
