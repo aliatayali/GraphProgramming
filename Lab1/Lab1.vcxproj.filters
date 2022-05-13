@@ -127,12 +127,6 @@
     <None Include="..\res\shader.vert">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\res\shaderGooch.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\res\shaderGooch.vert">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\res\shaderPhong.frag">
       <Filter>Resource Files</Filter>
     </None>

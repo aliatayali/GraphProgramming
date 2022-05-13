@@ -25,11 +25,9 @@ void main() {
   
 
   if(lamb > 0.0) {
-    vec3 ReflectedLV = reflect(-LightVector, Norm);      // Reflected light vector
-    vec3 VectorViewer = normalize(-vertexPosition); // Vector to viewer
+    vec3 ReflectedLV = reflect(-LightVector, Norm);   
+    vec3 VectorViewer = normalize(-vertexPosition); 
 
-
-    // Compute the specular term
     float specAngle = max(dot(ReflectedLV, VectorViewer), 0.0);
     specular = pow(specAngle, amountOfShine);
   }
